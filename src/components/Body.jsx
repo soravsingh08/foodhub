@@ -3,24 +3,36 @@ import foodData from "../utils/mock";
 import FoodCard from "./FoodCard";
 import { useState } from "react";
 
-
 const Body = () => {
+  const [cards, setCards] = useState(foodData);
+  const [allCards] = useState(foodData)
+  const [searchText, setSearchText] = useState("");
 
-    const [cards, setCards] = useState(foodData)
-
+  const handleFilter = () => {
+  const filtered = allCards.filter((item) => item.rating > 4);
+  setCards(filtered);
+};
   return (
     <div className="body">
       <div className="search-box">
-        <input type="search" placeholder="Search Food" />{" "}
-        <span>
-          <i className="ri-search-line"></i>
-        </span>
-        <button
-          className="filter"  onClick={()=>{
-            let filteredCard = foodData.filter(item => item.rating>4)
-            setCards(filteredCard)
-          }}>
-          Top Rated Restaurants
+        <div className="search-wrapper">
+          <input type="search" placeholder="Search Food"
+          value={searchText}
+          onChange={(e)=>(setSearchText(e.target.value))} />
+
+          <button
+          onClick={() => {
+           console.log(searchText)
+           const filteredRestaurant = allCards.filter((res)=>res.cuisine.toLowerCase().includes(searchText.toLocaleLowerCase()))
+           setCards(filteredRestaurant)
+            }}
+          >
+            <i className="ri-search-line"></i>
+          </button>
+        </div>
+
+        <button className="filter" onClick={handleFilter}>
+        Top Rated Restaurants
         </button>
       </div>
 

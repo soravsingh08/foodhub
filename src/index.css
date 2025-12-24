@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================
+   RESET & GLOBAL STYLES
+   ========================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,39 +8,59 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ROOT */
 html,
 body {
   width: 100%;
   height: 100%;
   background-color: #121212;
   color: #f5f5f5;
+  overflow-y: scroll; /* prevent layout shift */
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+   ========================= */
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 70px;
-  padding: 0 50px;
-  background-color: #151515;
+  padding: 0 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #2a2a2abf;
+  background: rgba(21, 21, 21, 0.6); /* glass base */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
 }
+
 
 /* LOGO */
 .logo h1 {
- font-size: 29px;
- font-weight: 200;
+  font-size: 29px;
+  font-weight: 200;
 }
-.logo h1 span{
+
+.logo h1 span {
   color: #ffbb00;
+}
+
+/* NAV CONTENT (Right side) */
+.content {
+  display: flex;
+  align-items: center;
+  gap: 26px; /* gives clean spacing */
+
 }
 
 /* NAV LINKS */
 .content ul {
   display: flex;
-  gap: 26px;
+  gap: 32px; /* more breathing space */
   list-style: none;
 }
 
@@ -50,80 +72,117 @@ body {
 }
 
 .content ul li:hover {
- color: #ffbb00;
+  color: #ffbb00;
 }
 
-/* BODY */
-.body {
-  padding: 30px 50px;
-}
-
-/* SEARCH */
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.search-box input {
-  width: 260px;
-  padding: 12px 15px;
-  background-color: #1e1e1e;
-  border: 1px solid #2d2d2d;
-  border-radius: 6px;
-  color: #ffffffa9;
-}
-
-.filter{
-  padding: 12px 15px;
+/* LOGIN BUTTON */
+.loginBtn {
+  padding: 8px 16px;
   background-color: #1e1e1e;
   border: 1px solid #2d2d2d;
   border-radius: 6px;
   color: #ffffffa9;
   cursor: pointer;
+  width: 80px;
 }
 
-.filter:active{
+.loginBtn:hover {
+  background-color: #ffb30339;
+}
+
+.loginBtn:active {
   scale: 0.95;
 }
 
-.search-box input::placeholder {
+/* =========================
+   MAIN BODY
+   ========================= */
+.body {
+  padding: 110px 50px 30px;
+
+}
+
+/* =========================
+   SEARCH & FILTER
+   ========================= */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 6px;
+}
+
+.search-wrapper input {
+  width: 220px;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffffa9;
+}
+
+.search-wrapper input::placeholder {
   color: #9a9a9a;
 }
 
-.search-box span {
-  font-size: 14px;
+.search-wrapper button {
+  background: transparent;
+  border: none;
+  padding: 0 12px;
   cursor: pointer;
-  color: #c8a165;
+  color: #ffffff80;
+  font-size: 18px;
 }
 
-/* CARDS CONTAINER (future ready) */
+.search-wrapper button:hover {
+  color: #fff;
+}
+
+.filter {
+  width: 170px;
+  padding: 12px 15px;
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 6px;
+  color: #ffffffa9;
+  cursor: pointer;
+}
+
+.filter:active {
+  scale: 0.95;
+}
+
+/* =========================
+   CARDS
+   ========================= */
 .cards-container {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
 }
 
-
-/* CARD */
 .cards {
-  width: 260px;
+  width: 262px;
+  margin-top: 40px;
+  padding: 20px;
   background-color: #1c1c1c;
   border-radius: 16px;
-  overflow: hidden;
-  margin-top: 40px;
-  padding:20px;
-  padding-left: 20px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.cards:hover{
-  scale: 1.02;
-
+.cards:hover {
+  transform: scale(1.02);
 }
 
-/* CARD IMAGE */
 .cards img {
   width: 100%;
   height: 130px;
@@ -131,19 +190,16 @@ body {
   border-radius: 15px;
 }
 
-/* CARD TEXT */
 .card-text {
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
- 
 }
 
 .card-text h3 {
   font-size: 21px;
   font-weight: 600;
-  color: #ffffff;
 }
 
 .card-text h5 {
@@ -155,4 +211,94 @@ body {
 .card-text p {
   font-size: 12px;
   color: #a8a8a8;
+}
+
+/* =========================
+   ABOUT PAGE
+   ========================= */
+.about {
+ padding: 110px 50px 30px;
+}
+
+/* =========================
+   CUSTOM SCROLLBAR (YouTube-style)
+   ========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.2);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.4);
+}
+
+
+/* =========================
+   SERVICES
+   ========================= */
+.services {
+ padding: 110px 50px 30px;
+}
+
+/* =========================
+  Contact us
+   ========================= */
+.contact {
+ padding: 110px 50px 30px;
+}
+/* =========================
+   ERROR PAGE
+   ========================= */
+.error {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 187, 0, 0.08),
+    #0f0f0f 55%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px;
+}
+
+/* Main heading */
+.error h1 {
+  font-size: 80px;
+  font-weight: 700;
+  color: #ffbb00;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* Sub heading */
+.error h2 {
+  font-size: 26px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.error h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #b5b5b5;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+
+
+
+.restaurantMenu {
+ padding: 110px 50px 30px;
 }
