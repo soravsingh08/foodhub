@@ -1,12 +1,35 @@
-# React + Vite
+# Food Hub 🍽️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Food Hub is a simple React.js project that displays restaurant cards using reusable components and props.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Restaurant listing with name, cuisine, rating, and delivery time
+- Reusable React components
+- Dynamic UI using map()
+- Clean and beginner-friendly structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
 
-## Expanding the ESLint configuration
+## 📁 Folder Structure
+src/
+components/
+Header.jsx
+Body.jsx
+RestaurantCard.jsx
+App.jsx
+index.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📚 What I Learned
+- Component-based architecture in React
+- Passing and using props
+- Rendering data dynamically
+- Structuring a small React project
+
+## 🔮 Future Improvements
+- API-based restaurant data
+- Search and filter feature
+- Routing for restaurant details page
