@@ -1,16 +1,20 @@
-const RestaurantMenu = ()=>{
-    return(
+import { Link } from "react-router-dom";
+import FoodCard from "./FoodCard";
 
-        <div className="restaurantMenu">
-            <h1>Sharma Dhaba</h1>
-            <h2>Menu</h2>
-            <ul>
-                <li>Rajma Chawal</li>
-                <li>Meethi Lassi</li>
-                <li>Kaladi Kulcha</li>
-            </ul>
-        </div>
-    )
-}
+// Ye component sirf list dikhata hai
+// ❌ logic nahi
+// ❌ state nahi
 
-export default RestaurantMenu
+const RestaurantMenu = ({ cards }) => {
+  return (
+    <div className="cards-container">
+      {cards.map((item) => (
+        <Link key={item.id} to={`/menu/${item.id}`}>
+          <FoodCard data={item} />
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+export default RestaurantMenu;

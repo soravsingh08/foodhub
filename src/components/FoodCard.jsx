@@ -1,3 +1,4 @@
+
 const FoodCard = ({ data }) => {
   const { name, cuisine, rating,  deliveryTime, image, price} = data;
 
