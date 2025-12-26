@@ -1,17 +1,35 @@
 import SearchBar from "./SearchBar";
-import RestaurantMenu from "./RestaurantMenu";
+import RestaurantList from "./RestaurantList";
 import useRestaurantData from "../utils/useRestaurantData";
+import UseOnlineStatus from "../utils/UseOnlineStatus";
 
 const Body = () => {
 
+  //calling hook
   const {
     cards,
     searchText,
     setSearchText,
     handleSearch,
     handleTopRated,
+    isTopRatedOn,
   } = useRestaurantData();
 
+
+  const onlineStatus = UseOnlineStatus()
+ if (!onlineStatus) {
+  return (
+    <div className="offline-container">
+      <div className="offline-card">
+        <span className="offline-icon">📡</span>
+        <h1>You’re offline</h1>
+        <p>
+          Please check your internet connection and try again.
+        </p>
+      </div>
+    </div>
+  );
+  }else
   return (
     <div className="body">
       <SearchBar
@@ -19,9 +37,10 @@ const Body = () => {
         setSearchText={setSearchText}
         onSearch={handleSearch}
         onTopRated={handleTopRated}
+        isTopRatedOn={isTopRatedOn}
       />
 
-      <RestaurantMenu cards={cards} />
+      <RestaurantList cards={cards} />
     </div>
   );
 };

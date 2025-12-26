@@ -9,6 +9,7 @@ const SearchBar = ({
   setSearchText,
   onSearch,
   onTopRated,
+ isTopRatedOn, 
 }) => {
   return (
     <div className="search-box">
@@ -25,9 +26,15 @@ const SearchBar = ({
         </button>
       </div>
 
-      <button className="filter" onClick={onTopRated}>
-        Top Rated Restaurants
-      </button>
+<button
+  className="filter"
+  onClick={() => {
+    console.log(isTopRatedOn);
+    onTopRated();
+  }}
+>
+  {isTopRatedOn ? "Show All Restaurants" : "Top Rated Restaurants"}
+</button>
     </div>
   );
 };

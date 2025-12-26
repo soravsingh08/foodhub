@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useContext } from 'react'
+import UserContext from '../utils/UserContext'
 
 const Header = () => {
 
  const [loginBtn, setLoginBtn] = useState("Login")
+
+ const data = useContext(UserContext)
+ console.log(data)
   return (
    <>
    <div className="navbar">
@@ -17,6 +21,7 @@ const Header = () => {
             <li> <Link to = "/about">About Us</Link></li>
               <li> <Link to ="/services">Services</Link></li>
             <li> <Link to ="/contact-us">Contact Us</Link></li>
+            <li>{"@"+data.loggedInUser +"."}</li>
          
         </ul>
        <button className='loginBtn' onClick={()=>(setLoginBtn(loginBtn === "Login" ? "Logout" : "Login"))}>{loginBtn}</button>

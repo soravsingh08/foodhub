@@ -6,9 +6,7 @@ const Error = ()=>{
     return(
 
         <div className="error">
-        <h1>Oops !!!!!!</h1>
-        <h2>Something Went Wrong</h2>
-        <h4>Yaha error show karunga ye dikhane k liye ki mujhe aata hai </h4>
+        <h1>Oops! Something Went Wrong.</h1>
            <Link to="/">
         <button>Close</button>
       </Link>

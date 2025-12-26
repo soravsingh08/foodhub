@@ -1,4 +1,6 @@
 import React from "react";
+import ShimmerAbout from "./ShimmerAbout";
+
 
 class About extends React.Component {
   constructor(props) {
@@ -40,10 +42,13 @@ class About extends React.Component {
     }
   }
 
-  debugger;
+
   render() {
     const { founder, team } = this.state;
-
+    
+    if(!founder || team.length === 0){
+      return <ShimmerAbout/>
+    }
     return (
       <div className="about-page">
         {/* ABOUT FOODHUB */}

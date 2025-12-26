@@ -3,7 +3,7 @@ const restaurantList = [
     id: 1,
     name: "Jammu",
     cuisine: "Rajma Chawal",
-    rating: 4.4,
+    rating: 5.0,
     deliveryTime: "35 mins",
     price: "₹180",
     image: "https://i.ytimg.com/vi/CFmQPIIODZY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAq76St6nDhbnpVFLt0r725ON9QfA" // sweets
@@ -21,7 +21,7 @@ const restaurantList = [
     id: 3,
     name: "Bombay",
     cuisine: "Street Food",
-    rating: 4.1,
+    rating: 4.6,
     deliveryTime: "25 mins",
     price: "₹120",
     image: "https://images.unsplash.com/photo-1628294895950-9805252327bc" // chaat
@@ -84,7 +84,7 @@ const restaurantList = [
     id: 10,
     name: "Chai",
     cuisine: "Snacks",
-    rating: 5.0,
+    rating: 4.7,
     deliveryTime: "20 mins",
     price: "₹90",
     image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b" // chai snacks
@@ -111,7 +111,7 @@ const restaurantList = [
     id: 13,
     name: "Delhi Zaika",
     cuisine: "Mughlai",
-    rating: 4.2,
+    rating: 4.6,
     deliveryTime: "33 mins",
     price: "₹260",
     image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398"
@@ -129,7 +129,7 @@ const restaurantList = [
     id: 15,
     name: "Street Junction",
     cuisine: "Chaat",
-    rating: 3.8,
+    rating: 4.8,
     deliveryTime: "22 mins",
     price: "₹110",
     image: "https://images.unsplash.com/photo-1628294895950-9805252327bc"
@@ -183,7 +183,7 @@ const restaurantList = [
     id: 21,
     name: "Paneer Plaza",
     cuisine: "Paneer",
-    rating: 4.2,
+    rating: 4.8,
     deliveryTime: "31 mins",
     price: "₹210",
     image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&auto=format&fit=crop&q=60"
@@ -228,7 +228,7 @@ const restaurantList = [
     id: 27,
     name: "Veggie Delight",
     cuisine: "Healthy Food",
-    rating: 3.8,
+    rating: 4.8,
     deliveryTime: "20 mins",
     price: "₹170",
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop&q=60"
