@@ -44,6 +44,6 @@ const Body = () => {
     </div>
   );
 };
-//readme update
+//readme update x2 cuz preparign for interview
 
 export default Body;
