@@ -44,6 +44,6 @@ const Body = () => {
     </div>
   );
 };
-//readme update x2 cuz preparign for interview
+//readme update x2 cuz preparign for interview. cuz of the bimar
 
 export default Body;
