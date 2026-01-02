@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState,useContext } from 'react'
 import UserContext from '../utils/UserContext'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
 
@@ -9,6 +10,10 @@ const Header = () => {
 
  const data = useContext(UserContext)
  console.log(data)
+
+ //subscribing to store using a selector
+
+ const cartItems = useSelector((store)=>store.cart.items)
   return (
    <>
    <div className="navbar">
@@ -21,7 +26,8 @@ const Header = () => {
             <li> <Link to = "/about">About Us</Link></li>
               <li> <Link to ="/services">Services</Link></li>
             <li> <Link to ="/contact-us">Contact Us</Link></li>
-            <li>{"@"+data.loggedInUser +"."}</li>
+             <li> <Link to ="/contact-us">Cart - ({cartItems.length} items)</Link></li>
+         
          
         </ul>
        <button className='loginBtn' onClick={()=>(setLoginBtn(loginBtn === "Login" ? "Logout" : "Login"))}>{loginBtn}</button>

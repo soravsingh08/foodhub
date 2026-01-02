@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import menuData from "../utils/restaurantMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 
 const MenuPage = () => {
   const { id } = useParams();
@@ -10,6 +13,15 @@ const MenuPage = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   if (!menu) return <h2>Menu not found</h2>;
+
+// eslint-disable-next-line
+  const dispatch = useDispatch()
+
+  const handleAddItem = (item)=>{
+  dispatch(addItem(item))
+    console.log(item)
+  }
+
 
   return (
     <div className="menu-wrapper">
@@ -49,7 +61,10 @@ const MenuPage = () => {
                   <p>₹ {item.price}</p>
                 </div>
 
-                <button onClick={() => setSelectedItem(item)}>
+                <button  
+                  onClick={()=>handleAddItem(item)}
+                  >
+                  
                   Add
                 </button>
               </div>
