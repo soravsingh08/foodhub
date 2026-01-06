@@ -1,35 +1,21 @@
-# Food Hub 🍽️
+# FoodHub – React Frontend App
 
-Food Hub is a simple React.js project that displays restaurant cards using reusable components and props.
+A frontend web application for browsing food items and managing orders.
 
-## 🚀 Features
-- Restaurant listing with name, cuisine, rating, and delivery time
-- Reusable React components
-- Dynamic UI using map()
-- Clean and beginner-friendly structure
-
-## 🛠 Tech Stack
-- React.js
+## Tech Stack
+- React
 - JavaScript (ES6+)
-- HTML5
-- CSS3
+- HTML5, CSS3
+- API integration
 
-## 📁 Folder Structure
-src/
-components/
-Header.jsx
-Body.jsx
-RestaurantCard.jsx
-App.jsx
-index.js
+## Features
+- Dynamic UI with reusable components
+- State management using hooks
+- Responsive layout
+- Clean folder structure
 
-## 📚 What I Learned
-- Component-based architecture in React
-- Passing and using props
-- Rendering data dynamically
-- Structuring a small React project
+## Live Demo
+🔗 https://your-live-link.netlify.app
 
-## 🔮 Future Improvements
-- API-based restaurant data
-- Search and filter feature
-- Routing for restaurant details page
+## Source Code
+📦 https://github.com/soravsingh08/foodhub
