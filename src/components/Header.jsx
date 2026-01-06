@@ -14,6 +14,7 @@ const Header = () => {
  //subscribing to store using a selector
 
  const cartItems = useSelector((store)=>store.cart.items)
+ console.log(cartItems)
   return (
    <>
    <div className="navbar">
@@ -26,7 +27,7 @@ const Header = () => {
             <li> <Link to = "/about">About Us</Link></li>
               <li> <Link to ="/services">Services</Link></li>
             <li> <Link to ="/contact-us">Contact Us</Link></li>
-             <li> <Link to ="/contact-us">Cart - ({cartItems.length} items)</Link></li>
+             <li> <Link to ="/cart">Cart - ({cartItems.length} items)</Link></li>
          
          
         </ul>

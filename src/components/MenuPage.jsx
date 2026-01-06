@@ -1,101 +1,93 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import menuData from "../utils/restaurantMenu";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
 
+import menuData from "../utils/restaurantMenu";
+import { addItem } from "../utils/cartSlice";
 
 const MenuPage = () => {
   const { id } = useParams();
   const menu = menuData[Number(id)];
 
-  const [openIndex, setOpenIndex] = useState(null);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
+  const [toast, setToast] = useState(null);
+
+  const dispatch = useDispatch();
 
   if (!menu) return <h2>Menu not found</h2>;
 
-// eslint-disable-next-line
-  const dispatch = useDispatch()
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+    setToast(`${item.name} added to cart`);
 
-  const handleAddItem = (item)=>{
-  dispatch(addItem(item))
-    console.log(item)
-  }
-
+    setTimeout(() => {
+      setToast(null);
+    }, 2000);
+  };
 
   return (
     <div className="menu-wrapper">
-      
+      {/* ================= Restaurant Info ================= */}
+      <div className="restaurant-header">
+        <h1>{menu.restaurantName}</h1>
 
-      {/* Restaurant Info */}
-      <h1>{menu.restaurantName}</h1>
-      <p className="restaurant-about">
-  {menu.restaurantName} is known for its homely flavours and
-  freshly prepared meals. Loved by locals for consistent taste,
-  quick service, and simple comfort food that feels like ghar ka khana.
-</p>
+        <p className="restaurant-about">
+          {menu.restaurantName} is known for its homely flavours and freshly
+          prepared meals. Loved by locals for consistent taste, quick service,
+          and simple comfort food that feels like ghar ka khana.
+        </p>
 
+        {menu.about && (
+          <p className="restaurant-about subtle">{menu.about}</p>
+        )}
+      </div>
 
-      <p className="restaurant-about">{menu.about}</p>
+      {/* ================= Menu Categories ================= */}
+      <div className="menu-container">
+        {menu.categories.map((category, index) => (
+          <div key={index} className="menu-category">
+            <div
+              className="category-header"
+              onClick={() =>
+                setOpenIndex(openIndex === index ? null : index)
+              }
+            >
+              <h3>
+                {category.title}
+                <span className="item-count">
+                  ({category.items.length})
+                </span>
+              </h3>
+              <span>{openIndex === index ? "▲" : "▼"}</span>
+            </div>
 
-      {/* Categories */}
-      {menu.categories.map((category, index) => (
-        <div key={index} className="menu-category">
-          <div
-            className="category-header"
-            onClick={() =>
-              setOpenIndex(openIndex === index ? null : index)
-            }
-          >
-            <h3>
-              {category.title} ({category.items.length})
-            </h3>
-            <span>{openIndex === index ? "▲" : "▼"}</span>
-          </div>
+            {openIndex === index && (
+              <div className="category-items">
+                {category.items.map((item) => (
+                  <div key={item.id} className="menu-item">
+                    <div className="item-info">
+                      <h4>{item.name}</h4>
+                      <p className="price">₹ {item.price}</p>
+                    </div>
 
-          {openIndex === index &&
-            category.items.map((item) => (
-              <div key={item.id} className="menu-item">
-                <div>
-                  <h4>{item.name}</h4>
-                  <p>₹ {item.price}</p>
-                </div>
-
-                <button  
-                  onClick={()=>handleAddItem(item)}
-                  >
-                  
-                  Add
-                </button>
+                    <button
+                      className="add-btn"
+                      onClick={() => handleAddItem(item)}
+                    >
+                      Add +
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-        </div>
-      ))}
-
-      {/* Popup */}
-      {selectedItem && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <h3>{selectedItem.name}</h3>
-            <p>₹ {selectedItem.price}</p>
-
-            <button
-              className="order-btn"
-              onClick={() => {
-                alert("Order placed.");
-                setSelectedItem(null);
-              }}
-            >
-              Order Now
-            </button>
-
-            <button
-              className="close-btn"
-              onClick={() => setSelectedItem(null)}
-            >
-              Cancel
-            </button>
+            )}
           </div>
+        ))}
+      </div>
+
+      {/* ================= Toast Popup ================= */}
+      {toast && (
+        <div className="toast">
+          {toast}
         </div>
       )}
     </div>

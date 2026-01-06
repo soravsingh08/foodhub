@@ -262,104 +262,99 @@ a {
   opacity: 0.7;
 }
 
-/* menu item card */
-.menu-item {
-  background: linear-gradient(180deg, #1a1a1a, #141414);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-top: 12px;
 
+/* ================= MENU ITEM ================= */
+.menu-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 14px 20px;
 }
 
-.menu-item h4 {
-  font-size: 15px;
+.menu-item:not(:last-child) {
+  border-bottom: 1px solid #222;
+}
+
+.item-info h4 {
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
-.menu-item p {
+.price {
   font-size: 14px;
-  color: #b5b5b5;
+  color: #b3b3b3;
 }
 
-/* add button */
-.menu-item button {
-  background: #ffbb00;
+/* ================= ADD BUTTON ================= */
+.add-btn {
+  background: #facc15;
   color: #000;
   border: none;
-  padding: 7px 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.menu-item button:active {
-  transform: scale(0.95);
+.add-btn:hover {
+  background: #fde047;
+  transform: scale(1.05);
 }
 
-/* popup overlay */
-.popup-overlay {
+/* ================= TOAST POPUP ================= */
+.toast {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-}
-
-/* popup box */
-.popup {
-  background: #1b1b1b;
-  padding: 24px;
-  border-radius: 16px;
-  width: 320px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.popup h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.popup p {
-  font-size: 14px;
-  color: #b5b5b5;
-}
-
-/* popup buttons */
-.popup button {
-  margin-top: 12px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.order-btn {
-  background: #00e676;
-  color: #000;
-}
-
-.order-btn:hover {
-  background: #1aff8c;
-}
-
-.close-btn {
-  background: #2a2a2a;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2933;
   color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+  z-index: 999;
 }
 
+/* ================= TOAST ANIMATION ================= */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 18px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .menu-wrapper {
+    padding: 30px 14px 90px;
+  }
+
+  .restaurant-header h1 {
+    font-size: 28px;
+  }
+
+  .category-header h3 {
+    font-size: 16px;
+  }
+
+  .item-info h4 {
+    font-size: 15px;
+  }
+
+  .add-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
 
 /* about */
 .about {
@@ -674,4 +669,162 @@ a {
   font-weight: 600;
   border-radius: 6px;
   z-index: 1;
+}
+
+
+ /* CART */
+
+/* ================= CART PAGE ================= */
+.cart-wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 110px 50px 30px;
+}
+
+/* ================= CARD ================= */
+.cart-card {
+  width: 100%;
+  max-width: 720px;
+  background: #121212;
+  border: 1px solid #1f1f1f;
+  border-radius: 18px;
+  padding: 32px 24px 40px;
+}
+
+/* ================= TITLE ================= */
+.cart-title {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.cart-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #facc15;
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+/* ================= EMPTY CART ================= */
+.empty-cart-box {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.cart-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-cart-box h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.empty-cart-box p {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ================= BROWSE BUTTON ================= */
+.browse-btn {
+  display: inline-block;
+  background: #facc15;
+  color: #000;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.browse-btn:hover {
+  background: #fde047;
+  transform: scale(1.05);
+}
+
+/* ================= CART ITEMS ================= */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-info h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.cart-item-info p {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+/* ================= BUTTONS ================= */
+.remove-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+}
+
+.cart-actions {
+  margin-top: 24px;
+  text-align: right;
+}
+
+.clear-cart {
+  background: #facc15;
+  color: #000;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.clear-cart:hover {
+  background: #fde047;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .cart-card {
+    padding: 24px 16px 32px;
+  }
+
+  .cart-title {
+    font-size: 24px;
+  }
 }

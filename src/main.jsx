@@ -10,6 +10,7 @@ import Error from "./components/Error.jsx";
 import Contact from "./components/Contact.jsx";
 
 import MenuPage from "./components/MenuPage.jsx";
+import Cart from "./components/Cart.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -35,8 +36,12 @@ const appRouter = createBrowserRouter([
 
        {
         path: "/menu/:id",
-    element: <MenuPage/>,
+        element: <MenuPage/>,
       },
+      {
+        path : "/cart",
+        element :<Cart/>
+      }
     ],
   },
 ]);
